@@ -1,8 +1,6 @@
 package com.bharath.flightreservation.controllers;
 
-import com.bharath.flightreservation.entities.ClientData;
-import com.bharath.flightreservation.entities.SupplierIfno;
-import com.bharath.flightreservation.services.ClientService;
+import com.bharath.flightreservation.entities.SupplierInfo;
 import com.bharath.flightreservation.services.SupplierService;
 import com.bharath.flightreservation.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,9 +43,9 @@ public class SupplierController {
 	}
 
 	@RequestMapping("/admin/saveSupplier")
-	public String saveSupplier(@ModelAttribute("supplierInfo") SupplierIfno supplierIfno, ModelMap modelMap) {
-		SupplierIfno supplierIfno1 = supplierService.saveSupplier(supplierIfno);
-		String msg = "Location saved with id: " + supplierIfno1.getId();
+	public String saveSupplier(@ModelAttribute("supplierInfo") SupplierInfo supplierIfno, ModelMap modelMap) {
+		SupplierInfo supplierIfno1 = supplierService.saveSupplier(supplierIfno);
+		String msg = "Location saved with id: " + supplierIfno1.getFax();
 		modelMap.addAttribute("msg", msg);
 
 		return "createSupplier";
@@ -55,32 +53,32 @@ public class SupplierController {
 
 	@RequestMapping("/admin/displayLocation")
 	public String displayLocation(ModelMap modelMap) {
-		List<SupplierIfno> supplierIfno = supplierService.getAllSuppliers();
+		List<SupplierInfo> supplierIfno = supplierService.getAllSuppliers();
 		modelMap.addAttribute("supplierIfno", supplierIfno);
 		return "suppliersAll";
 	}
 
 	@RequestMapping("/admin/deleteSupplie")
-	public String deleteSupplie(@RequestParam("id") long id, ModelMap modelMap) {
-		SupplierIfno supplierIfno = new SupplierIfno();
-		supplierIfno.setId(id);
+	public String deleteSupplie(@RequestParam("id") String id, ModelMap modelMap) {
+		SupplierInfo supplierIfno = new SupplierInfo();
+		supplierIfno.setSupplierId(id);
 		supplierService.deleteSupplier(supplierIfno);
-		List<SupplierIfno> supplierIfnoList = supplierService.getAllSuppliers();
+		List<SupplierInfo> supplierIfnoList = supplierService.getAllSuppliers();
 		modelMap.addAttribute("supplierIfnoList", supplierIfnoList);
 		return "redirect:/admin/displayLocation";
 	}
 
 	@RequestMapping("/admin/showSupplie")
 	public String showSupplie(@RequestParam("id") int id, ModelMap modelMap) {
-		SupplierIfno supplierIfno = supplierService.getSupplierById(id);
+		SupplierInfo supplierIfno = supplierService.getSupplierById(id);
 		modelMap.addAttribute("supplierIfno", supplierIfno);
 		return "updateSupplier";
 	}
 
 	@RequestMapping("/admin/updateSupplie")
-	public String updateSupplie(@ModelAttribute("supplierIfno") SupplierIfno supplierIfno, ModelMap modelMap) {
+	public String updateSupplie(@ModelAttribute("supplierIfno") SupplierInfo supplierIfno, ModelMap modelMap) {
 		supplierService.updateSupplier(supplierIfno);
-		List<SupplierIfno> supplierIfnoList = supplierService.getAllSuppliers();
+		List<SupplierInfo> supplierIfnoList = supplierService.getAllSuppliers();
 		modelMap.addAttribute("supplierIfnoList", supplierIfnoList);
 		return "redirect:/admin/displayLocation";
 	}

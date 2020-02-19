@@ -1,45 +1,49 @@
 package com.bharath.flightreservation.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "supplierifno")
-public class SupplierIfno extends AbstractEntity{
+@Table(name = "supplierInfo")
+public class SupplierInfo {
 
+    @Id
     @Column(name = "supplierId")
     private String supplierId;
 
-    @Column(name = "contact_person")
+    @Column(name = "Contact_Person")
     private String ContactPerson;
 
-    @Column(name = "tell")
+    @Column(name = "Supplier_Tell")
     private String tell;
 
-    @Column(name = "cell")
+    @Column(name = "Supplier_Cell")
     private String cell;
 
-    @Column(name = "fax")
+    @Column(name = "Supplier_Fax")
     private String fax;
 
-    @Column(name = "email")
+    @Column(name = "Supplier_Email")
     private String email;
 
-    @Column(name = "bank")
+    @Column(name = "Bank")
     private String bank;
 
-    @Column(name = "branch")
+    @Column(name = "Bank_Code")
     private String branch;
 
-    @Column(name = "accountNo")
+    @Column(name = "Supplier_BankNum")
     private String accountNo;
 
-    @Column(name = "accountType")
+    @Column(name = "Supplier_Typle_Bank_Account")
     private String accountType;
 
-    @Column(name = "comments")
+    @Column(name = "Comments")
     private String comments;
+
+    @OneToMany(targetEntity=Supplements.class, mappedBy="supplierIfno",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<SupplierInfo> supplierInfoList;
+
 
     public String getSupplierId() {
         return supplierId;
@@ -127,5 +131,13 @@ public class SupplierIfno extends AbstractEntity{
 
     public void setComments(String comments) {
         this.comments = comments;
+    }
+
+    public List<SupplierInfo> getSupplierInfoList() {
+        return supplierInfoList;
+    }
+
+    public void setSupplierInfoList(List<SupplierInfo> supplierInfoList) {
+        this.supplierInfoList = supplierInfoList;
     }
 }

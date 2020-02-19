@@ -1,42 +1,38 @@
 package com.bharath.flightreservation.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "Supplements")
-public class Supplements extends AbstractEntity {
+@Table(name = "supplements")
+public class Supplements  {
 
-    @Column(name = "supplierId")
+    @Id
+    @Column(name = "supplier_id")
     private String supplierId;
 
-    @Column(name = "description")
+    @Column(name = "Suppl_Description")
     private String description;
 
-    @Column(name = "costExcVat")
-    private String costExcVat;
+    @Column(name = "Cost_excl")
+    private Double costExcVat;
 
-    @Column(name = "costIncVat")
+    @Column(name = "Perc_inc")
     private String costIncVat;
 
-    @Column(name = "percInc")
-    private String percInc;
+    @Column(name = "Min_levels")
+    private int minLevels;
 
-    @Column(name = "costClient")
-    private String costClient;
+    @Column(name = "Stock_levels")
+    private int stockLevels;
 
-
-    @OneToOne
-    private SupplierIfno supplierIfno;
-
-
-    @Column(name = "minLevels")
-    private String minLevels;
-
-    @Column(name = "stockLevels")
-    private String stockLevels;
-
-    @Column(name = "nappiCode")
+    @Column(name = "Nappi_code")
     private String nappiCode;
+
+    @ManyToOne()
+    @JoinColumn(name="supplier_id")
+    private SupplierInfo supplierIfno;
+
 
     public String getSupplierId() {
         return supplierId;
@@ -54,11 +50,11 @@ public class Supplements extends AbstractEntity {
         this.description = description;
     }
 
-    public String getCostExcVat() {
+    public Double getCostExcVat() {
         return costExcVat;
     }
 
-    public void setCostExcVat(String costExcVat) {
+    public void setCostExcVat(Double costExcVat) {
         this.costExcVat = costExcVat;
     }
 
@@ -70,43 +66,19 @@ public class Supplements extends AbstractEntity {
         this.costIncVat = costIncVat;
     }
 
-    public String getPercInc() {
-        return percInc;
-    }
-
-    public void setPercInc(String percInc) {
-        this.percInc = percInc;
-    }
-
-    public String getCostClient() {
-        return costClient;
-    }
-
-    public void setCostClient(String costClient) {
-        this.costClient = costClient;
-    }
-
-    public SupplierIfno getSupplierIfno() {
-        return supplierIfno;
-    }
-
-    public void setSupplierIfno(SupplierIfno supplierIfno) {
-        this.supplierIfno = supplierIfno;
-    }
-
-    public String getMinLevels() {
+    public int getMinLevels() {
         return minLevels;
     }
 
-    public void setMinLevels(String minLevels) {
+    public void setMinLevels(int minLevels) {
         this.minLevels = minLevels;
     }
 
-    public String getStockLevels() {
+    public int getStockLevels() {
         return stockLevels;
     }
 
-    public void setStockLevels(String stockLevels) {
+    public void setStockLevels(int stockLevels) {
         this.stockLevels = stockLevels;
     }
 
@@ -116,5 +88,13 @@ public class Supplements extends AbstractEntity {
 
     public void setNappiCode(String nappiCode) {
         this.nappiCode = nappiCode;
+    }
+
+    public SupplierInfo getSupplierIfno() {
+        return supplierIfno;
+    }
+
+    public void setSupplierIfno(SupplierInfo supplierIfno) {
+        this.supplierIfno = supplierIfno;
     }
 }

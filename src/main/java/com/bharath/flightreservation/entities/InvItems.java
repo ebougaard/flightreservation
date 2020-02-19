@@ -10,7 +10,7 @@ public class InvItems {
     InvInfo invInfo;
 
     @OneToOne
-    private SupplierIfno supplierIfno;
+    private SupplierInfo supplierIfno;
 
     @Column(name = "Item_Price")
     private Double itemPrice;
@@ -26,11 +26,11 @@ public class InvItems {
         this.invInfo = invInfo;
     }
 
-    public SupplierIfno getSupplierIfno() {
+    public SupplierInfo getSupplierIfno() {
         return supplierIfno;
     }
 
-    public void setSupplierIfno(SupplierIfno supplierIfno) {
+    public void setSupplierIfno(SupplierInfo supplierIfno) {
         this.supplierIfno = supplierIfno;
     }
 

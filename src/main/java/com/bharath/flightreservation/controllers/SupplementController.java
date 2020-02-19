@@ -45,7 +45,7 @@ public class SupplementController {
 	@RequestMapping("/admin/saveSupplements")
 	public String saveSupplements(@ModelAttribute("supplement") Supplements supplements, ModelMap modelMap) {
 		Supplements supplement = supplementsService.saveSupplement(supplements);
-		String msg = "Supplement saved with id: " + supplements.getId();
+		String msg = "Supplement saved with id: " + supplements.getSupplierId();
 		modelMap.addAttribute("msg", msg);
 		return "createSupplement";
 	}
@@ -58,9 +58,9 @@ public class SupplementController {
 	}
 
 	@RequestMapping("/admin/deleteSupplements")
-	public String deleteSupplements(@RequestParam("id") long id, ModelMap modelMap) {
+	public String deleteSupplements(@RequestParam("id") String id, ModelMap modelMap) {
 		Supplements supplements = new Supplements();
-		supplements.setId(id);
+		supplements.setSupplierId(id);
 		supplementsService.deleteSupplements(supplements);
 		List<Supplements> supplementsList = supplementsService.getAllSupplements();
 		modelMap.addAttribute("supplementsList", supplementsList);

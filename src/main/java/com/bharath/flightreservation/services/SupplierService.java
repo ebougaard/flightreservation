@@ -1,19 +1,18 @@
 package com.bharath.flightreservation.services;
 
-import com.bharath.flightreservation.entities.ClientData;
-import com.bharath.flightreservation.entities.SupplierIfno;
+import com.bharath.flightreservation.entities.SupplierInfo;
 
 import java.util.List;
 
 public interface SupplierService {
 
-	SupplierIfno saveSupplier(SupplierIfno supplierIfno);
+	SupplierInfo saveSupplier(SupplierInfo supplierIfno);
 
-	SupplierIfno updateSupplier(SupplierIfno supplierIfno);
+	SupplierInfo updateSupplier(SupplierInfo supplierIfno);
 
-	void deleteSupplier(SupplierIfno supplierIfno);
+	void deleteSupplier(SupplierInfo supplierIfno);
 
-	SupplierIfno getSupplierById(long id);
+	SupplierInfo getSupplierById(long id);
 
-	List<SupplierIfno> getAllSuppliers();
+	List<SupplierInfo> getAllSuppliers();
 }
