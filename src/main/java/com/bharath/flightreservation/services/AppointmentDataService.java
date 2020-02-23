@@ -12,7 +12,7 @@ public interface AppointmentDataService {
 
 	void deleteAppointmentData(Appointment_data appointmentData);
 
-	Appointment_data getAppointmenDataById(long id);
+	Appointment_data getAppointmenDataById(int id);
 
 	List<Appointment_data> getAllAppointmenData();
 }

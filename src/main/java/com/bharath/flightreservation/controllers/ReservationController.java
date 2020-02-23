@@ -22,8 +22,6 @@ import com.bharath.flightreservation.services.ReservationService;
 @Controller
 public class ReservationController {
 
-/*	@Autowired
-	FlightRepository flightRepository;*/
 
 	@Autowired
 	AppointmentRepository appointmentRepository;

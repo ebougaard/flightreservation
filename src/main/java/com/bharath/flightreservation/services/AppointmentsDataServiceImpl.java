@@ -34,12 +34,14 @@ public class AppointmentsDataServiceImpl implements AppointmentDataService {
 	}
 
 	@Override
-	public Appointment_data getAppointmenDataById(long id) {
-		return repository.findOne(id);
+	public Appointment_data getAppointmenDataById(int id) {
+		return
+				repository.findOne(id);
 	}
 
 	@Override
 	public List<Appointment_data> getAllAppointmenData() {
+
 		return repository.findAll();
 	}
 

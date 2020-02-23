@@ -4,9 +4,11 @@ package com.bharath.flightreservation.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
+@Table(name = "appointment_data")
 public class Appointment_data {
 
     @Id
@@ -14,7 +16,7 @@ public class Appointment_data {
     private int appontments_id;
 
     @Column(name = "appointment_description")
-    private Date appointmentDescription;
+    private String appointmentDescription;
 
 
     public int getAppontments_id() {
@@ -25,11 +27,11 @@ public class Appointment_data {
         this.appontments_id = appontments_id;
     }
 
-    public Date getDateOfAppointment() {
+    public String getAppointmentDescription() {
         return appointmentDescription;
     }
 
-    public void setDateOfAppointment(Date dateOfAppointment) {
-        this.appointmentDescription = dateOfAppointment;
+    public void setAppointmentDescription(String appointmentDescription) {
+        this.appointmentDescription = appointmentDescription;
     }
 }

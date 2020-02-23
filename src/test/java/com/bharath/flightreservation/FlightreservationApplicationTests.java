@@ -1,5 +1,7 @@
 package com.bharath.flightreservation;
 
+import com.bharath.flightreservation.entities.AppointmentInfo;
+import com.bharath.flightreservation.services.AppointmentInfoService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import com.bharath.flightreservation.repos.PassengerRepository;
 import com.bharath.flightreservation.repos.ReservationRepository;
 import com.bharath.flightreservation.util.EmailUtil;
 import com.bharath.flightreservation.util.PDFGenerator;
+
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,23 +31,22 @@ public class FlightreservationApplicationTests {
 	ReservationRepository reservationRepo;
 
 	@Autowired
-	PDFGenerator pdfGenerator;
+	AppointmentInfoService appointmentInfoService;
 
 	@Autowired
 	EmailUtil emailUtil;
 
-	@Test
+	//@Test
 	public void contextLoads() {
 	}
 
 	@Test
 	public void testGenerateItenarary() {
-		Reservation reservation = reservationRepo.findOne(1L);
-		String filePath = "/Users/ebougaard/Documents/reservations/reservation" + reservation.getId() + ".pdf";
-		pdfGenerator.generateItinerary(reservation, filePath);
+		List<AppointmentInfo> appointmentInfoList = appointmentInfoService.getAllAppointmenInfo();
+		System.out.println(appointmentInfoList);
 	}
 
-	@Test
+	//@Test
 	public void testEmail() {
 		Reservation reservation = reservationRepo.findOne(1L);
 		String filePath = "/Users/ebougaard/Documents/reservations/reservation" + reservation.getId() + ".pdf";

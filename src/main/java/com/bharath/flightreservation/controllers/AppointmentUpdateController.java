@@ -2,6 +2,10 @@ package com.bharath.flightreservation.controllers;
 
 
 import com.bharath.flightreservation.entities.Appointment;
+import com.bharath.flightreservation.entities.AppointmentInfo;
+import com.bharath.flightreservation.entities.Appointment_data;
+import com.bharath.flightreservation.services.AppointmentDataService;
+import com.bharath.flightreservation.services.AppointmentInfoService;
 import com.bharath.flightreservation.services.AppointmentsService;
 import com.bharath.flightreservation.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +27,12 @@ public class AppointmentUpdateController {
 	@Autowired
 	AppointmentsService appointmentsService;
 
+	@Autowired
+	AppointmentDataService appointmentDataService;
+
+	@Autowired
+	AppointmentInfoService appointmentInfoService;
+
 
 	@Autowired
 	ReportUtil reportUtil;
@@ -36,6 +46,12 @@ public class AppointmentUpdateController {
 	public String showCreateAppointment() {
 
 		return "createAppointment";
+	}
+
+	@RequestMapping("admin/searchAppointment")
+	public String searchAppointment() {
+
+		return "searchAppointments";
 	}
 
 	@RequestMapping("/admin/displayAllAppointmentData")
@@ -55,9 +71,23 @@ public class AppointmentUpdateController {
 
 	@RequestMapping("/admin/displayAppointments")
 	public String displayAppointments(ModelMap modelMap) {
-		List<Appointment> appointments = appointmentsService.getAllAppointment();
+		List<AppointmentInfo> appointments = appointmentInfoService.getAllAppointmenInfo();
 		modelMap.addAttribute("appointments", appointments);
-		return "appointmentsAll";
+
+/*		for (AppointmentInfo appointmentInfo : appointments ) {
+
+
+
+			System.out.println(appointmentInfo.getClientData().getClientId());
+			System.out.println(appointmentInfo.getAppointmentDate());
+			System.out.println(appointmentInfo.getClientData().getName());
+			System.out.println(appointmentInfo.getClientData().getSurname());
+			System.out.println(appointmentInfo.getAppointment_data().getDateOfAppointment());
+		}*/
+
+
+			return "appointmentsAll";
+
 	}
 
 	@RequestMapping("/admin/deleteAppointments")

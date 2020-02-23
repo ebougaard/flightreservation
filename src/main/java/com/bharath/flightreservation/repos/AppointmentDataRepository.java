@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface AppointmentDataRepository extends JpaRepository<Appointment_data, Long> {
+public interface AppointmentDataRepository extends JpaRepository<Appointment_data, Integer> {
 
 
 }

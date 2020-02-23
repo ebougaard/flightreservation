@@ -1,33 +1,34 @@
 package com.bharath.flightreservation.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.Date;
 
-public class AppointmentInfo {
+@Entity
+@Table(name = "appointment_infos")
+public class AppointmentInfo extends AbstractEntity{
 
-
-
-    @Id
-    @Column(name = "appontments_id")
-    private int appontmentsId;
 
     @Column(name = "Appointment_Date")
     private Date appointmentDate;
 
-    @OneToOne
+
+
+
+
+   // @OneToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Client_id", nullable = false)
     private ClientData clientData;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "appontments_id", nullable = false)
     private Appointment_data appointment_data;
 
-    public int appontmentsId() {
-        return appontmentsId;
-    }
-
-    public void appontmentsId(int appontments_id) {
-        this.appontmentsId = appontments_id;
+    @Override
+    public String toString() {
+        return "AppointmentInfo{" +
+                "appointmentDate=" + appointmentDate +
+                '}';
     }
 
     public Date getAppointmentDate() {
@@ -37,6 +38,7 @@ public class AppointmentInfo {
     public void setAppointmentDate(Date appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
+
 
     public ClientData getClientData() {
         return clientData;

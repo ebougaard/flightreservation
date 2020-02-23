@@ -124,7 +124,7 @@ body {
 
 
 <div class="container">
-  <h2>Manage Appointments</h2>
+  <h2>Appointment Report</h2>
   <table class="table">
     <thead>
       <tr>
@@ -146,15 +146,11 @@ body {
 <td>${appointments.clientData.tel_cell}</td>
 <td>${appointments.appointment_data.appointmentDescription}</td>
 
-
-<td><a href="deleteAppointments?id=${appointments.id}">delete</a></td>
-<td><a href="showAppointments?id=${appointments.id}">edit</a></td>
 </tr>
 </c:forEach>
     </tbody>
   </table>
-  <a href="showCreateAppointment" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Appointment</a>
-   <a href="searchAppointment" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Appointment Report</a>
+
 </div>
 
 

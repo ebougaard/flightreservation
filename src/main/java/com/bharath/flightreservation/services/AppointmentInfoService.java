@@ -14,7 +14,7 @@ public interface AppointmentInfoService {
 
 	void deleteAppointmentInfo(AppointmentInfo appointmentInfo);
 
-	AppointmentInfo getAppointmenInfoById(long id);
+	AppointmentInfo getAppointmenInfoById(int id);
 
 	List<AppointmentInfo> getAllAppointmenInfo();
 }

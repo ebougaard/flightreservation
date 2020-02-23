@@ -29,7 +29,12 @@ public class Supplements  {
     @Column(name = "Nappi_code")
     private String nappiCode;
 
-    @ManyToOne()
+  /*  @ManyToOne()
+    @JoinColumn(name="supplier_id")*/
+/*    @ManyToOne(optional=false)
+    @JoinColumn(name="supplierId",referencedColumnName="supplier_id")*/
+
+    @OneToOne
     @JoinColumn(name="supplier_id")
     private SupplierInfo supplierIfno;
 

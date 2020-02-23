@@ -1,31 +1,43 @@
 package com.bharath.flightreservation.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+
 
 
 @Entity
-public class ClientData extends AbstractEntity{
-    @Column(name = "client_id")
+@Table(name = "clientinfo")
+public class ClientData {
+
+    @Id
+    @Column(name = "Client_id")
     private String clientId;
-    @Column(name = "name")
+
+    @Column(name = "C_name")
     private String name;
-    @Column(name = "surname")
+
+    @Column(name = "C_surename")
     private String surname;
-    @Column(name = "address")
+
+    @Column(name = "Address")
     private String address;
-    @Column(name = "code")
+
+    @Column(name = "Code")
     private String code;
-    @Column(name = "tel_home")
+
+    @Column(name = "C_Tel_H")
     private String tel_home;
-    @Column(name = "tel_work")
+
+    @Column(name = "C_Tel_W")
     private String tel_work;
-    @Column(name = "tel_cell")
+
+    @Column(name = "C_Tel_Cell")
     private String tel_cell;
-    @Column(name = "email")
+
+    @Column(name = "C_Email")
     private String email;
-    @Column(name = "reference")
+
     private String reference;
+
 
     public String getClientId() {
         return clientId;
@@ -106,4 +118,6 @@ public class ClientData extends AbstractEntity{
     public void setReference(String reference) {
         this.reference = reference;
     }
+
+
 }

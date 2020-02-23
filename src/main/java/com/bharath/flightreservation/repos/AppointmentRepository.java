@@ -1,7 +1,6 @@
 package com.bharath.flightreservation.repos;
 
 import com.bharath.flightreservation.entities.Appointment;
-import com.bharath.flightreservation.entities.Flight;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

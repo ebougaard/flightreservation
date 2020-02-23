@@ -25,8 +25,7 @@ public class ReservationServiceImpl implements ReservationService {
 	@Value("${com.bharath.flightreservation.itinerary.dirpath}")
 	private String ITINERARY_DIR;
 
-/*	@Autowired
-	FlightRepository flightRepository;*/
+
 
 	@Autowired
 	AppointmentRepository appointmentRepository;
@@ -46,7 +45,6 @@ public class ReservationServiceImpl implements ReservationService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
 	@Override
-	//@Transactional
 	public Reservation bookFlight(ReservationRequest request) {
 
 		LOGGER.info("Inside bookFlight()");

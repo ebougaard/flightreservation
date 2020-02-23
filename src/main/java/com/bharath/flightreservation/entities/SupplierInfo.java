@@ -41,8 +41,8 @@ public class SupplierInfo {
     @Column(name = "Comments")
     private String comments;
 
-    @OneToMany(targetEntity=Supplements.class, mappedBy="supplierIfno",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<SupplierInfo> supplierInfoList;
+   // @OneToMany(targetEntity=Supplements.class, mappedBy="supplier_id",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+  //  private List<SupplierInfo> supplierInfoList;
 
 
     public String getSupplierId() {
@@ -133,11 +133,11 @@ public class SupplierInfo {
         this.comments = comments;
     }
 
-    public List<SupplierInfo> getSupplierInfoList() {
+/*    public List<SupplierInfo> getSupplierInfoList() {
         return supplierInfoList;
     }
 
     public void setSupplierInfoList(List<SupplierInfo> supplierInfoList) {
         this.supplierInfoList = supplierInfoList;
-    }
+    }*/
 }

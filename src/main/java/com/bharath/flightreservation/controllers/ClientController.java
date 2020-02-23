@@ -46,7 +46,7 @@ public class ClientController {
 	@RequestMapping("/admin/saveLoc")
 	public String saveLocation(@ModelAttribute("clientData") ClientData clientData, ModelMap modelMap) {
 		ClientData savedClient = clientService.saveClient(clientData);
-		String msg = "Location saved with id: " + savedClient.getId();
+		String msg = "Location saved with id: " + savedClient.getClientId();
 		modelMap.addAttribute("msg", msg);
 
 		return "createClient";
@@ -61,10 +61,10 @@ public class ClientController {
 
 
 	@RequestMapping("/admin/deleteLocation")
-	public String deleteLocation(@RequestParam("id") long id, ModelMap modelMap) {
+	public String deleteLocation(@RequestParam("id") String id, ModelMap modelMap) {
 		// Location location = service.getLocationById(id);
 		ClientData clientData = new ClientData();
-		clientData.setId(id);
+		clientData.setClientId(id);
 		clientService.deleteClient(clientData);
 		List<ClientData> clientDataList = clientService.getAllClients();
 		modelMap.addAttribute("clientDataList", clientDataList);
