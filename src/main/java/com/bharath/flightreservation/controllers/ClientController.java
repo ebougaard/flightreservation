@@ -58,6 +58,12 @@ public class ClientController {
 		modelMap.addAttribute("clientData", clientData);
 		return "manageAppointments";
 	}
+	@RequestMapping("admin/dayToDay1")
+	public String displayDayToDay(ModelMap modelMap) {
+		List<ClientData> clientData = clientService.getAllClients();
+		modelMap.addAttribute("clientData", clientData);
+		return "dayToDay1";
+	}
 
 
 	@RequestMapping("/admin/deleteLocation")

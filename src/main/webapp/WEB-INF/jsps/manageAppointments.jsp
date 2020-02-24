@@ -152,8 +152,9 @@ body {
 <td>${clientData.tel_cell}</td>
 <td>${clientData.email}</td>
 <td>${clientData.reference}</td>
-<td><a href="deleteLocation?id=${clientData.id}">delete</a></td>
-<td><a href="showUpdate?id=${clientData.id}">edit</a></td>
+<td><a href="deleteLocation?id=${clientData.clientId}">delete</a></td>
+<td><a href="showUpdate?id=${clientData.clientId}">edit</a></td>
+<td><a href="dayToDay1" type="button" class="btn btn-primary">Display Weekly Birthdays</a></td>
 </tr>
 </c:forEach>
 
