@@ -131,10 +131,7 @@ body {
 <th>Supplement Id</th>
 <th>Description</th>
 <th>Cost Exc Vat</th>
-<th>Cost Inc Vat</th>
-<th>Perc Inc</th>
 <th>Cost Client</th>
-<th>Supplier Info</th>
 <th>Min Leve</th>
 <th>Stock Leve No</th>
 <th>Nappi Code</th>
@@ -143,18 +140,15 @@ body {
 
 <c:forEach items="${supplements}" var="supplements">
 <tr>
-<td>${supplements.supplierId}</td>
+<td>${supplements.supplementId}</td>
 <td>${supplements.description}</td>
 <td>${supplements.costExcVat}</td>
 <td>${supplements.costIncVat}</td>
-<td>${supplements.percInc}</td>
-<td>${supplements.costClient}</td>
-<td>${supplements.supplierIfno}</td>
 <td>${supplements.minLevels}</td>
 <td>${supplements.stockLevels}</td>
 <td>${supplements.nappiCode}</td>
-<td><a href="deleteSupplements?id=${supplements.id}">delete</a></td>
-<td><a href="showSupplements?id=${supplements.id}">edit</a></td>
+<td><a href="deleteSupplements?supplementId=${supplements.supplementId}">delete</a></td>
+<td><a href="showSupplements?supplementId=${supplements.supplementId}">edit</a></td>
 </tr>
 </c:forEach>
     </tbody>

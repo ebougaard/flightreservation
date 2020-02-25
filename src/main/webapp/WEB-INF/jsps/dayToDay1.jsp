@@ -39,18 +39,31 @@
 </head>
 <style></style>
 <body>
-<div class="container">
-    <table id="birthDay" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Telephone Number</th>
-             <th>Email</th>
-              </tr>
-              </tfoot>
-              </table>
-            </div>
-            </body>
+<table id="birthDay" class="table table-striped table-bordered" style="width:100%">
+<thead>
+<tr>
+<th>Name</th>
+<th>Telephone Number</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<c:forEach var="data" items="${clientData}">
+<tr>
+<td><c:out value="${data.name}"></c:out></td>
+<td><c:out value="${data.tel_home}"></c:out></td>
+<td><c:out value="${data.email}"></c:out></td>
+</tr>
+</c:forEach>
+</tbody>
+<tfoot>
+<tr>
+<th>Name</th>
+<th>Telephone Number</th>
+<th>Email</th>
+</tr>
+</tfoot>
+</table>
     <script>
        var $table = $('#birthDay');
        $table.DataTable({

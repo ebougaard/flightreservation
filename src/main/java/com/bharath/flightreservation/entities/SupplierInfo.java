@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "supplierInfo")
+@Table(name = "supplierinfo")
 public class SupplierInfo {
 
     @Id
-    @Column(name = "supplierId")
+    @Column(name = "supplier_id")
     private String supplierId;
 
     @Column(name = "Contact_Person")
@@ -32,7 +32,7 @@ public class SupplierInfo {
     @Column(name = "Bank_Code")
     private String branch;
 
-    @Column(name = "Supplier_BankNum")
+    @Column(name = "supplier_bank_num")
     private String accountNo;
 
     @Column(name = "Supplier_Typle_Bank_Account")
@@ -41,8 +41,6 @@ public class SupplierInfo {
     @Column(name = "Comments")
     private String comments;
 
-   // @OneToMany(targetEntity=Supplements.class, mappedBy="supplier_id",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-  //  private List<SupplierInfo> supplierInfoList;
 
 
     public String getSupplierId() {
@@ -109,13 +107,6 @@ public class SupplierInfo {
         this.branch = branch;
     }
 
-    public String getAccountNo() {
-        return accountNo;
-    }
-
-    public void setAccountNo(String accountNo) {
-        this.accountNo = accountNo;
-    }
 
     public String getAccountType() {
         return accountType;
@@ -133,11 +124,11 @@ public class SupplierInfo {
         this.comments = comments;
     }
 
-/*    public List<SupplierInfo> getSupplierInfoList() {
-        return supplierInfoList;
+    public String getAccountNo() {
+        return accountNo;
     }
 
-    public void setSupplierInfoList(List<SupplierInfo> supplierInfoList) {
-        this.supplierInfoList = supplierInfoList;
-    }*/
+    public void setAccountNo(String accountNo) {
+        this.accountNo = accountNo;
+    }
 }

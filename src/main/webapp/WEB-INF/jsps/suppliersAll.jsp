@@ -137,6 +137,7 @@ body {
 <th>Bank</th>
 <th>Branch</th>
 <th>Account No</th>
+<th>Account Type</th>
 <th>Comments</th>
 
 </tr>
@@ -152,9 +153,10 @@ body {
 <td>${supplierIfno.bank}</td>
 <td>${supplierIfno.branch}</td>
 <td>${supplierIfno.accountNo}</td>
+<td>${supplierIfno.accountType}</td>
 <td>${supplierIfno.comments}</td>
-<td><a href="deleteSupplie?id=${supplierIfno.id}">delete</a></td>
-<td><a href="showSupplie?id=${supplierIfno.id}">edit</a></td>
+<td><a href="deleteSupplie?id=${supplierIfno.supplierId}">delete</a></td>
+<td><a href="showSupplie?id=${supplierIfno.supplierId}">edit</a></td>
 </tr>
 </c:forEach>
     </tbody>

@@ -33,10 +33,9 @@ public class SupplementsServiceImpl implements SupplementsService {
 	}
 
 	@Override
-	public Supplements getSupplementById(long id) {
+	public Supplements getSupplementById(String id) {
 		return repository.findOne(id);
 	}
-
 
 
 	@Override

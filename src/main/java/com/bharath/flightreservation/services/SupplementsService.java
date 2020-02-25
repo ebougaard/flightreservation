@@ -12,7 +12,7 @@ public interface SupplementsService {
 
 	void deleteSupplements(Supplements supplements);
 
-	Supplements getSupplementById(long id);
+	Supplements getSupplementById(String id);
 
 	List<Supplements> getAllSupplements();
 }

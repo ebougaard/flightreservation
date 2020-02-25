@@ -61,6 +61,37 @@ public class ClientController {
 	@RequestMapping("admin/dayToDay1")
 	public String displayDayToDay(ModelMap modelMap) {
 		List<ClientData> clientData = clientService.getAllClients();
+
+
+
+
+
+
+
+
+		for (ClientData clientData1: clientData) {
+            String input = clientData1.getClientId();
+
+            String firstTwoChars = "";     //substring containing first 4 characters
+            String firstFourChars = "";
+
+
+            if (input.length() > 4)
+            {
+                firstTwoChars = input.substring(2, 4);
+                firstFourChars = input.substring(4, 6);
+            }
+            else
+            {
+                firstFourChars = input;
+            }
+
+            System.out.println(firstFourChars);
+
+
+        }
+
+
 		modelMap.addAttribute("clientData", clientData);
 		return "dayToDay1";
 	}

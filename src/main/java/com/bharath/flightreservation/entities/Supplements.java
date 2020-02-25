@@ -1,21 +1,21 @@
 package com.bharath.flightreservation.entities;
 
 import javax.persistence.*;
-import java.util.Set;
+
 
 @Entity
 @Table(name = "supplements")
 public class Supplements  {
 
     @Id
-    @Column(name = "supplier_id")
-    private String supplierId;
+    @Column(name = "supplementId")
+    private String supplementId;
 
     @Column(name = "Suppl_Description")
     private String description;
 
     @Column(name = "Cost_excl")
-    private Double costExcVat;
+    private String costExcVat;
 
     @Column(name = "Perc_inc")
     private String costIncVat;
@@ -29,22 +29,19 @@ public class Supplements  {
     @Column(name = "Nappi_code")
     private String nappiCode;
 
-  /*  @ManyToOne()
-    @JoinColumn(name="supplier_id")*/
-/*    @ManyToOne(optional=false)
-    @JoinColumn(name="supplierId",referencedColumnName="supplier_id")*/
 
-    @OneToOne
-    @JoinColumn(name="supplier_id")
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "supplier_id", nullable = false)
     private SupplierInfo supplierIfno;
 
 
-    public String getSupplierId() {
-        return supplierId;
+    public String getSupplementId() {
+        return supplementId;
     }
 
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplementId(String supplementId) {
+        this.supplementId = supplementId;
     }
 
     public String getDescription() {
@@ -55,11 +52,11 @@ public class Supplements  {
         this.description = description;
     }
 
-    public Double getCostExcVat() {
+    public String getCostExcVat() {
         return costExcVat;
     }
 
-    public void setCostExcVat(Double costExcVat) {
+    public void setCostExcVat(String costExcVat) {
         this.costExcVat = costExcVat;
     }
 
