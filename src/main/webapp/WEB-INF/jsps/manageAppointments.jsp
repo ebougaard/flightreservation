@@ -125,6 +125,7 @@ body {
 
 <div class="container">
   <h2>Manage Clients</h2>
+  <span class="float-right"><a href="dayToDay1" type="button" class="btn btn-primary">Display Weekly Birthdays</a></span>
   <table class="table">
     <thead>
       <tr>
@@ -154,7 +155,6 @@ body {
 <td>${clientData.reference}</td>
 <td><a href="deleteLocation?id=${clientData.clientId}">delete</a></td>
 <td><a href="showUpdate?id=${clientData.clientId}">edit</a></td>
-<td><a href="dayToDay1" type="button" class="btn btn-primary">Display Weekly Birthdays</a></td>
 </tr>
 </c:forEach>
 

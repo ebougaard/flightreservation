@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Supplements  {
 
     @Id
-    @Column(name = "supplementId")
+    @Column(name = "supplement_id")
     private String supplementId;
 
     @Column(name = "Suppl_Description")

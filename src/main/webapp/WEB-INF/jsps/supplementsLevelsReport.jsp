@@ -124,8 +124,7 @@ body {
 
 
 <div class="container">
-  <h2>Manage Supplements</h2>
-  <span class="float-right"><a href="displaySupplementLevels" type="button" class="btn btn-primary">Supplements Levels Report</a></span>
+  <h2>Stock Levels Report</h2>
   <table class="table">
     <thead>
       <tr>
@@ -133,9 +132,12 @@ body {
 <th>Description</th>
 <th>Cost Exc Vat</th>
 <th>Cost Client</th>
-<th>Min Leve</th>
-<th>Stock Leve No</th>
-<th>Nappi Code</th>
+<th>Min Level</th>
+<th>Stock Level</th>
+<th>Supplier Name</th>
+<th>Supplier Number</th>
+<th>Supplier Email</th>
+
 
 </tr>
 
@@ -147,14 +149,15 @@ body {
 <td>${supplements.costIncVat}</td>
 <td>${supplements.minLevels}</td>
 <td>${supplements.stockLevels}</td>
-<td>${supplements.nappiCode}</td>
-<td><a href="deleteSupplements?supplementId=${supplements.supplementId}">delete</a></td>
-<td><a href="showSupplements?supplementId=${supplements.supplementId}">edit</a></td>
+<td>${supplements.supplierIfno.contactPerson}</td>
+<td>${supplements.supplierIfno.tell}</td>
+<td>${supplements.supplierIfno.email}</td>
+
+
 </tr>
 </c:forEach>
     </tbody>
   </table>
-  <a href="showCreateSupplement" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Supplement</a>
 </div>
 
 

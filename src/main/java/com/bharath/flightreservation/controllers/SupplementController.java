@@ -1,6 +1,7 @@
 package com.bharath.flightreservation.controllers;
 
 import com.bharath.flightreservation.entities.Supplements;;
+import com.bharath.flightreservation.repos.SupplementsRepository;
 import com.bharath.flightreservation.services.SupplementsService;
 import com.bharath.flightreservation.util.ReportUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class SupplementController {
 
 	@Autowired
 	SupplementsService supplementsService;
+
+	@Autowired
+	SupplementsRepository supplementsRepository;
 
 
 	@Autowired
@@ -55,6 +59,13 @@ public class SupplementController {
 		List<Supplements> supplements = supplementsService.getAllSupplements();
 		modelMap.addAttribute("supplements", supplements);
 		return "supplementsAll";
+	}
+
+	@RequestMapping("/admin/displaySupplementLevels")
+	public String displaySupplementLevels(ModelMap modelMap) {
+		List<Supplements> supplements = supplementsRepository.findSupplementsLevels();
+		modelMap.addAttribute("supplements", supplements);
+		return "supplementsLevelsReport";
 	}
 
 	@RequestMapping("/admin/deleteSupplements")

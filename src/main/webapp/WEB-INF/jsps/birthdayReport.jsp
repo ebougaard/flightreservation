@@ -124,37 +124,34 @@ body {
 
 
 <div class="container">
-  <h2>Manage Supplements</h2>
-  <span class="float-right"><a href="displaySupplementLevels" type="button" class="btn btn-primary">Supplements Levels Report</a></span>
+  <h2>Clients With Birthdays This Week</h2>
+  </br>
   <table class="table">
     <thead>
       <tr>
-<th>Supplement Id</th>
-<th>Description</th>
-<th>Cost Exc Vat</th>
-<th>Cost Client</th>
-<th>Min Leve</th>
-<th>Stock Leve No</th>
-<th>Nappi Code</th>
+
+<th>Name</th>
+<th>Surname</th>
+<th>Tel_Home</th>
+<th>Tel_Work</th>
+<th>Tel_Cell</th>
+<th>E-mail</th>
 
 </tr>
 
-<c:forEach items="${supplements}" var="supplements">
+<c:forEach items="${clientDataList}" var="clientDataList">
 <tr>
-<td>${supplements.supplementId}</td>
-<td>${supplements.description}</td>
-<td>${supplements.costExcVat}</td>
-<td>${supplements.costIncVat}</td>
-<td>${supplements.minLevels}</td>
-<td>${supplements.stockLevels}</td>
-<td>${supplements.nappiCode}</td>
-<td><a href="deleteSupplements?supplementId=${supplements.supplementId}">delete</a></td>
-<td><a href="showSupplements?supplementId=${supplements.supplementId}">edit</a></td>
+<td>${clientDataList.name}</td>
+<td>${clientDataList.surname}</td>
+<td>${clientDataList.tel_home}</td>
+<td>${clientDataList.tel_work}</td>
+<td>${clientDataList.tel_cell}</td>
+<td>${clientDataList.email}</td>
 </tr>
 </c:forEach>
+
     </tbody>
   </table>
-  <a href="showCreateSupplement" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">New Supplement</a>
 </div>
 
 
