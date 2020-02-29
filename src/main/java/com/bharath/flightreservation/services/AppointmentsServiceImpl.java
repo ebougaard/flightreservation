@@ -34,7 +34,7 @@ public class AppointmentsServiceImpl implements AppointmentsService {
 	}
 
 	@Override
-	public Appointment getAppointmentById(long id) {
+	public Appointment getAppointmentById(int id) {
 		return repository.findOne(id);
 	}
 

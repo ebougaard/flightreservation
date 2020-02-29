@@ -1,6 +1,7 @@
 package com.bharath.flightreservation.services;
 
 import com.bharath.flightreservation.entities.ClientData;
+import com.bharath.flightreservation.entities.Passenger;
 import com.bharath.flightreservation.repos.ClientDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public ClientData getClientById(long id) {
+	public ClientData getClientById(String id) {
 		return repository.findOne(id);
 	}
 
@@ -46,6 +47,23 @@ public class ClientServiceImpl implements ClientService {
 
 	public void setRepository(ClientDataRepository repository) {
 		this.repository = repository;
+	}
+
+
+	@Override
+	public ClientData addClinet(Passenger passenger) {
+
+		ClientData clientData = new ClientData();
+		clientData.setName(passenger.getFirstName());
+		clientData.setSurname(passenger.getLastName());
+		clientData.setTel_cell(passenger.getPhone());
+		clientData.setEmail(passenger.getEmail());
+		clientData.setClientId(passenger.getIdNumber());
+
+		ClientData saveClient = repository.save(clientData);
+
+		return null;
+
 	}
 
 }

@@ -17,5 +17,8 @@ public interface AppointmentInfoRepository extends JpaRepository<AppointmentInfo
     List<AppointmentInfo> findAppointmentInfo(
             @Param("appointmentDate") Date appDate);
 
+    @Query("from  AppointmentInfo where appointmentDate between :fromDate and :toDate")
+    List<AppointmentInfo> findAppointmentDatesByDateRange(@Param("fromDate") Date fromDate , @Param("toDate") Date toDate);
+
 
 }

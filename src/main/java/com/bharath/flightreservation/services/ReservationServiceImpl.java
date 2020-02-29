@@ -1,7 +1,7 @@
 package com.bharath.flightreservation.services;
 
-import com.bharath.flightreservation.entities.Appointment;
-import com.bharath.flightreservation.repos.AppointmentRepository;
+import com.bharath.flightreservation.entities.*;
+import com.bharath.flightreservation.repos.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bharath.flightreservation.dto.ReservationRequest;
-import com.bharath.flightreservation.entities.Flight;
-import com.bharath.flightreservation.entities.Passenger;
-import com.bharath.flightreservation.entities.Reservation;
-import com.bharath.flightreservation.repos.FlightRepository;
-import com.bharath.flightreservation.repos.PassengerRepository;
-import com.bharath.flightreservation.repos.ReservationRepository;
 import com.bharath.flightreservation.util.EmailUtil;
 import com.bharath.flightreservation.util.PDFGenerator;
 
@@ -26,15 +20,20 @@ public class ReservationServiceImpl implements ReservationService {
 	private String ITINERARY_DIR;
 
 
-
 	@Autowired
 	AppointmentRepository appointmentRepository;
+
+	@Autowired
+	AppointmentDataRepository appointmentDataRepository;
 
 	@Autowired
 	PassengerRepository passengerRepository;
 
 	@Autowired
 	ReservationRepository reservationRepository;
+
+	@Autowired
+	ClientDataRepository clientDataRepository;
 
 	@Autowired
 	PDFGenerator pdfGenerator;
@@ -50,7 +49,7 @@ public class ReservationServiceImpl implements ReservationService {
 		LOGGER.info("Inside bookFlight()");
 		// Make Payment
 
-		Long appointmentId = request.getappointmentId();
+		int appointmentId = request.getappointmentId();
 		//Long appointmentId = request.getappointmentId();
 		LOGGER.info("Fetching  flight for flight id:" + appointmentId);
 		Appointment appointment = appointmentRepository.findOne(appointmentId);
@@ -79,6 +78,84 @@ public class ReservationServiceImpl implements ReservationService {
 		emailUtil.sendItinerary(passenger.getEmail(), filePath);
 
 		return savedReservation;
+	}
+
+	@Override
+	public Reservation bookAppointment(Passenger passenger) {
+
+		LOGGER.info("Inside bookFlight()");
+		// Make Payment
+
+		String appointmentId = passenger.getIdNumber();
+		//Long appointmentId = request.getappointmentId();
+		LOGGER.info("Fetching  flight for flight id:" + appointmentId);
+
+		//Appointment appointment = appointmentRepository.findOne(appointmentId);
+
+		Passenger passengers = new Passenger();
+		passengers.setFirstName(passenger.getFirstName());
+		passengers.setLastName(passenger.getLastName());
+		passengers.setPhone(passenger.getPhone());
+		passengers.setEmail(passenger.getEmail());
+		passengers.setIdNumber(passenger.getIdNumber());
+		LOGGER.info("Saving the passenger:" + passenger);
+
+		Passenger savedPassenger = passengerRepository.save(passengers);
+
+		Passenger passenger1 = passengerRepository.findOne(passengers.getId());
+		return null;
+
+
+
+
+
+	/*	Reservation reservation = new Reservation();
+		reservation.setAppointment(appointment);
+		reservation.setPassenger(savedPassenger);
+		reservation.setCheckedIn(false);*/
+
+		/*LOGGER.info("Saving the reservation:" + reservation);
+		Reservation savedReservation = reservationRepository.save(reservation);*/
+
+/*		String filePath = ITINERARY_DIR + savedReservation.getId()
+				+ ".pdf";
+		LOGGER.info("Generating  the itinerary");
+		pdfGenerator.generateItinerary(savedReservation, filePath);
+		LOGGER.info("Emailing the Itinerary");
+		emailUtil.sendItinerary(passenger.getEmail(), filePath);
+
+		return savedReservation;
+	}*/
+
+	}
+
+	@Override
+	public Reservation addClinet(Passenger passenger) {
+
+		LOGGER.info("Inside bookFlight()");
+		// Make Payment
+
+		//String appointmentId = passenger.getIdNumber();
+		//Long appointmentId = request.getappointmentId();
+		//LOGGER.info("Fetching  flight for flight id:" + appointmentId);
+
+		//Appointment appointment = appointmentRepository.findOne(appointmentId);
+
+		Passenger passengers = new Passenger();
+		passengers.setFirstName(passenger.getFirstName());
+		passengers.setLastName(passenger.getLastName());
+		passengers.setPhone(passenger.getPhone());
+		passengers.setEmail(passenger.getEmail());
+		passengers.setIdNumber(passenger.getIdNumber());
+		LOGGER.info("Saving the passenger:" + passenger);
+
+		Passenger savedPassenger = passengerRepository.save(passengers);
+;
+		return null;
+
+
+
+
 	}
 
 }

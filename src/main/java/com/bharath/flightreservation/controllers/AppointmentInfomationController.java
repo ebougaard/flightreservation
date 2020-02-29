@@ -39,9 +39,7 @@ public class AppointmentInfomationController {
 		LOGGER.info("Inside findAppointments() from" + "Appointment Date: " + appDate);
 		AppointmentInfo appointment = new AppointmentInfo();
 		appointment.setAppointmentDate(new Date());
-		//appointmentRepository.save(appointment);
 		List<AppointmentInfo> appointments = appointmentInfoRepository.findAppointmentInfo(appDate);
-       // List<AppointmentInfo> appointmentsl = appointmentInfoRepository.findAll();
 			modelMap.addAttribute("appointments", appointments);
 		LOGGER.info("Appointment Found are:" + appointments);
 		return "displayAppointmentReport";

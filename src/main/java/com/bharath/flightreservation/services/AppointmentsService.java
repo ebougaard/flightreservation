@@ -13,7 +13,7 @@ public interface AppointmentsService {
 
 	void deleteAppointment(Appointment appointment);
 
-	Appointment getAppointmentById(long id);
+	Appointment getAppointmentById(int id);
 
 	List<Appointment> getAllAppointment();
 }

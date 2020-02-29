@@ -44,10 +44,11 @@
 <form action="completeReservation" method="post"/>
 <pre>
 <h2>Enter Details:</h2>
-First Name:<input type="text" name="passengerFirstName"/>
-Last Name:<input type="text" name="passengerLastName"/>
-Email:<input type="text" name="passengerEmail"/>
-Phone:<input type="text" name="passengerPhone"/>
+First Name:<input type="text" name="firstName"/>
+Last Name:<input type="text" name="lastName"/>
+Email:<input type="text" name="email"/>
+Phone:<input type="text" name="phone"/>
+ID Number:<input type="text" name="idNumber"/>
 
 <input type="hidden" name="appointmentId" value="${appointment.id}"/>
 <input type="submit" value="confirm"/>

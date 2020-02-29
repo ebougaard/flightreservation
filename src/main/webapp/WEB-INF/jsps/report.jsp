@@ -7,6 +7,6 @@
 <title>Report</title>
 </head>
 <body>
-<img src="pieChart.jpeg"/>
+<img src="http://localhost:8090/reservations/images/pieChart.png"/>
 </body>
 </html>

@@ -10,6 +10,7 @@ public class Passenger extends AbstractEntity{
 	private String middleName;
 	private String email;
 	private String phone;
+	private String idNumber;
 
 
 
@@ -53,4 +54,11 @@ public class Passenger extends AbstractEntity{
 		this.phone = phone;
 	}
 
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
 }

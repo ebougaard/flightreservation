@@ -2,22 +2,22 @@ package com.bharath.flightreservation.dto;
 
 public class ReservationRequest {
 
-	private Long appointmentId;
+	private int appointmentId;
 	private String passengerFirstName;
 	private String passengerLastName;
 	private String passengerEmail;
+	private String idNumber;
 	private String passengerPhone;
 	private String nameOnTheCard;
 	private String cardNumber;
-
 	private String expirationDate;
 	private String securityCode;
 
-	public Long getappointmentId() {
+	public int getappointmentId() {
 		return appointmentId;
 	}
 
-	public void setappointmentId(Long appointmentId) {
+	public void setappointmentId(int appointmentId) {
 		this.appointmentId = appointmentId;
 	}
 
@@ -85,12 +85,28 @@ public class ReservationRequest {
 		this.securityCode = securityCode;
 	}
 
+	public int getAppointmentId() {
+		return appointmentId;
+	}
+
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
+
 	@Override
 	public String toString() {
 		return "ReservationRequest [appointmentId=" + appointmentId + ", passengerFirstName=" + passengerFirstName
 				+ ", passengerLastName=" + passengerLastName + ", passengerEmail=" + passengerEmail
 				+ ", passengerPhone=" + passengerPhone + ", nameOnTheCard=" + nameOnTheCard + ", cardNumber="
-				+ cardNumber + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode + "]";
+				+ cardNumber + ", expirationDate=" + expirationDate + ", securityCode=" + securityCode +",idNumber" + idNumber +"]";
 	}
 
 }

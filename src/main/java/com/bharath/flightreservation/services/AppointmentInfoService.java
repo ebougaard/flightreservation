@@ -4,6 +4,7 @@ package com.bharath.flightreservation.services;
 
 import com.bharath.flightreservation.entities.AppointmentInfo;
 
+import java.util.Date;
 import java.util.List;
 
 public interface AppointmentInfoService {
@@ -17,4 +18,6 @@ public interface AppointmentInfoService {
 	AppointmentInfo getAppointmenInfoById(int id);
 
 	List<AppointmentInfo> getAllAppointmenInfo();
+
+	List<AppointmentInfo> getAppointmentDatesByDateRange(Date fromDate , Date toDate);
 }

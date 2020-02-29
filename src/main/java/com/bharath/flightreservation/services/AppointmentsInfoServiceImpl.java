@@ -7,6 +7,7 @@ import com.bharath.flightreservation.repos.AppointmentInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -49,4 +50,8 @@ public class AppointmentsInfoServiceImpl implements AppointmentInfoService {
 		this.repository = repository;
 	}
 
+	@Override
+	public List<AppointmentInfo> getAppointmentDatesByDateRange(Date fromDate, Date toDate) {
+		return repository.findAppointmentDatesByDateRange(fromDate,toDate);
+	}
 }

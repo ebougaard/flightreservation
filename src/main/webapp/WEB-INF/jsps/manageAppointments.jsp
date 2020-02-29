@@ -126,6 +126,8 @@ body {
 <div class="container">
   <h2>Manage Clients</h2>
   <span class="float-right"><a href="dayToDay1" type="button" class="btn btn-primary">Display Weekly Birthdays</a></span>
+  <a href="displayNumberOfAppointments" type="button" class="btn btn-primary">Number of Appointments</a>
+  <a href="generateReport" type="button" class="btn btn-primary">Reference Report</a>
   <table class="table">
     <thead>
       <tr>

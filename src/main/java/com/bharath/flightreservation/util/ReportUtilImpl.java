@@ -21,14 +21,16 @@ public class ReportUtilImpl implements ReportUtil {
 			dataset.setValue(objects[0].toString(), new Double(objects[1].toString()));
 		}
 
-		JFreeChart chart = ChartFactory.createPieChart3D("Location Type Report", dataset);
+		JFreeChart chart = ChartFactory.createPieChart3D("Reference Report", dataset);
 
 		try {
-			ChartUtilities.saveChartAsJPEG(new File(path + "/pieChart.jpeg"), chart, 300, 300);
+			//ChartUtilities.saveChartAsJPEG(new File(path + "/pieChart.jpeg"), chart, 600, 400);
+			ChartUtilities.saveChartAsPNG(new File(path + "pieChart.png"), chart, 600, 400);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
+
 
 }

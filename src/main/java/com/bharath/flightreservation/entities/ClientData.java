@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class ClientData {
 
     @Id
-    @Column(name = "Client_id")
+    @Column(name = "client_id")
     private String clientId;
 
     @Column(name = "C_name")

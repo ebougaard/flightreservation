@@ -198,7 +198,7 @@ public class ClientController {
 	}
 
 	@RequestMapping("/admin/showUpdate")
-	public String showUpdate(@RequestParam("id") int id, ModelMap modelMap) {
+	public String showUpdate(@RequestParam("id") String id, ModelMap modelMap) {
 		ClientData clientData = clientService.getClientById(id);
 		modelMap.addAttribute("clientData", clientData);
 		return "updateClient";
